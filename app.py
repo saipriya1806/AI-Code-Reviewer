@@ -10,7 +10,7 @@ load_dotenv(dotenv_path)
 # Load API Key from environment variable
 api_key = os.getenv('GENAI_API_KEY')
 if not api_key:
-    st.error("⚠️ API key is missing. Please set the 'GENAI_API_KEY' environment variable.")
+    st.error(" API key is missing. Please set the 'GENAI_API_KEY' environment variable.")
 else:
     # Configure Google Gemini API
     genai.configure(api_key=api_key)
@@ -33,11 +33,11 @@ gemini = genai.GenerativeModel(
 def app():
     st.set_page_config(
         page_title="AI Code Reviewer", 
-        layout="centered",
-        page_icon="🚀"
+        layout="centered"
+        
     )
 
-    st.title("📝 Python Code Reviewer")
+    st.title(" Python Code Reviewer")
 
     user_prompt = st.text_area("Enter your python code here...", height=200)
 
@@ -70,10 +70,10 @@ def app():
                         st.write(review_text) 
 
                 except Exception as e: # Catch potential errors during generation
-                   st.error(f"⚠️ An error occurred during code review: {e}")
+                   st.error(f" An error occurred during code review: {e}")
 
         else:
-            st.error("⚠️ Please enter your code before clicking 'Generate'.")
+            st.error(" Please enter your code before clicking 'Generate'.")
 
 if __name__ == '__main__':
     app()
